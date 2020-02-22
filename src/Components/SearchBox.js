@@ -1,22 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
 import Suggestions from "./Suggestions";
 import SearchInput from "./SearchInput";
 import getResults from "../utils/helpers";
 
-const SearchBoxWrapper = styled.div`
-  width: 100%;
-  height: 42px;
 
-  svg {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translate(0, -50%);
-    fill: #d3d3d3;
-  }
-`;
 
 const isTouch = "ontouchstart" in window || navigator.msMaxTouchPoints > 0;
 
@@ -136,7 +124,8 @@ class SearchBox extends React.Component {
       getMouseInSuggestions
     } = this.state;
     return (
-      <SearchBoxWrapper
+      <div 
+        style={{width: '100%', height:42}}
         onMouseLeave={!isTouch && this.handleMouseLeave}
         onKeyDown={!isTouch && this.handleArrowKeys}
         onMouseEnter={!isTouch && this.handleMouseEnter}
@@ -159,7 +148,7 @@ class SearchBox extends React.Component {
           mouseInSuggestions={getMouseInSuggestions}
           getMouseInSuggestions={this.getMouseInSuggestions}
         />
-      </SearchBoxWrapper>
+      </div>
     );
   }
 }

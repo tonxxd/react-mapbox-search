@@ -1,22 +1,6 @@
 import React from "react";
-import styled from "styled-components";
 import Suggestion from "./Suggestion";
 
-const Wrapper = styled.span`
-  position: relative;
-  display: ${({ hasResults }) => (hasResults ? "flex" : "none")};
-  z-index: 9999;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-top: none;
-  border-color: #d3d3d3;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-`;
-
-const SuggestionsList = styled.div`
-  width: 100%;
-`;
 
 const Suggestions = ({
   places,
@@ -37,8 +21,21 @@ const Suggestions = ({
   };
 
   return (
-    <Wrapper hasResults={hasResults}>
-      <SuggestionsList
+    <div style={{
+      'position': 'relative',
+      'display': hasResults ? 'flex':'none',
+      'z-index': '9999',
+      'background-color': '#fff',
+      'border': '1px solid #ccc',
+      'border-top': 'none',
+      'border-color': '#d3d3d3',
+      'border-bottom-left-radius': '3px',
+      'border-bottom-right-radius': '3px',
+    }}>
+      <div
+        style={{
+          width:'100%'
+        }}
         onMouseEnter={!isTouch && handleMouseEnter}
         onMouseLeave={!isTouch && handleMouseLeave}
       >
@@ -54,8 +51,8 @@ const Suggestions = ({
             place={place}
           />
         ))}
-      </SuggestionsList>
-    </Wrapper>
+      </div>
+    </div>
   );
 };
 
