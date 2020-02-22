@@ -1,5 +1,5 @@
 {
-  "name": "@tonxxd/react-mapbox-search",
+  "name": "react-mapbox-search",
   "version": "1.0.5",
   "description": "A location picker component that uses Mapbox's places API to provide location suggestions",
   "main": "dist/index",
